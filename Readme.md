@@ -233,3 +233,21 @@ Completa esta sección con los nombres reales del grupo:
 python -m streamlit run view/app.py
 python -c "from controller.orquestador.pipeline import analizar_contrato; print('ok')"
 ```
+
+---
+
+## Información del Proyecto - Avance 1
+- **Curso:** Herramientas de Desarrollo
+- **Proyecto:** LexCore - Plataforma de Gestión y Análisis
+- **Líder de Integración:** Diego Camasca
+
+### Integrantes del Equipo
+1. Diego Camasca (Líder / Rama: feature/diego)
+2. [Nombre Completo Compañero 2] (Rama: feature/nombre2)
+3. [Nombre Completo Compañero 3] (Rama: feature/nombre3)
+4. [Nombre Completo Compañero 4] (Rama: feature/nombre4)
+5. [Nombre Completo Compañero 5] (Rama: feature/nombre5)
+
+### Instrucciones de Ejecución
+```bash
+streamlit run view/app.py
