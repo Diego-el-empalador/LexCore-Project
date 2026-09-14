@@ -28,7 +28,7 @@ st.markdown(
     .subtitle {color: #5f6368; margin-bottom: 1rem;}
     .lexcore-card {
         border: 1px solid rgba(49, 51, 63, 0.15);
-        border-radius: 16px;
+        border-radius: 14px;
         padding: 1rem 1.2rem;
         background: rgba(255,255,255,0.03);
     }
