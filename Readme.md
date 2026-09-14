@@ -221,7 +221,7 @@ Completa esta sección con los nombres reales del grupo:
 
 | Integrante | Módulo / responsabilidad |
 |---|---|
-| `Nombre 1` | Frontend Streamlit / UX |
+| `Diego`    | Frontend Streamlit / UX |
 | `Nombre 2` | Pipeline Python / analítica |
 | `Nombre 3` | Scala tokenizer |
 | `Nombre 4` | Prolog / base de conocimiento |
@@ -233,3 +233,5 @@ Completa esta sección con los nombres reales del grupo:
 python -m streamlit run view/app.py
 python -c "from controller.orquestador.pipeline import analizar_contrato; print('ok')"
 ```
+## Equipo de Desarrollo
+- Diego (Líder / Integración)
