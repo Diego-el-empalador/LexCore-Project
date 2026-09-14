@@ -1,3 +1,5 @@
+# Módulo de Interfaz Gráfica - LexCore (Streamlit)
+# Desarrollado para gestión y análisis documental
 """Aplicacion principal Streamlit de LexCore.
 
 Autor: GPT-5.4
