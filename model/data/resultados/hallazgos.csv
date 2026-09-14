@@ -1,0 +1,72 @@
+contrato_id,clausula_id,tipo_riesgo,severidad,fecha
+1,general,bajo,32b49cfd
+5,plazo,medio,995b6042
+5,plazo,medio,7c76b1cd
+1,no_competencia,alto,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,ae106f4e
+1,general,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,c2b64791
+1,modificacion_unilateral,critico,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,c2b64791
+1,general,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,399e379f
+1,modificacion_unilateral,critico,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,399e379f
+1,general,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,3c167504
+1,modificacion_unilateral,critico,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,3c167504
+1,no_competencia,critico,Art. 1400 CC,Son abusivas las clausulas que generan desequilibrio importante contra la parte debil,12af5603
+2,general,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,12af5603
+2,modificacion_unilateral,critico,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,12af5603
+3,datos_personales,critico,Ley 29733,"El tratamiento de datos personales requiere consentimiento, finalidad y proporcionalidad",12af5603
+2,general,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,0a1f81fe
+2,modificacion_unilateral,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,0a1f81fe
+1,penalidad,critico,Ley 29733,"El tratamiento de datos personales requiere consentimiento, finalidad y proporcionalidad",19e60c85
+2,general,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,19e60c85
+2,modificacion_unilateral,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,19e60c85
+2,rescision,alto,Art. 1354 CC,La autonomia privada no ampara modificaciones unilaterales abusivas,19e60c85
+1,general,alto,D. Leg. 822,La cesion de derechos de propiedad intelectual debe ser expresa y delimitada,1dcdc9b7
+1,no_competencia,critico,Ley 29733,"El tratamiento de datos personales requiere consentimiento, finalidad y proporcionalidad",9be8c3a0
+2,modificacion_unilateral,critico,D. Leg. 1071,El arbitraje debe respetar debido proceso y equilibrio entre las partes,9be8c3a0
+3,datos_personales,critico,Art. 1362 CC,Contratos deben ejecutarse segun reglas de buena fe,9be8c3a0
+1,no_competencia,critico,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,659f9577
+2,modificacion_unilateral,critico,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,659f9577
+3,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,659f9577
+1,no_competencia,critico,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,78d9c108
+2,modificacion_unilateral,critico,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,78d9c108
+3,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,78d9c108
+4,general,critico,Art. 1400 CC,No deben existir clausulas que generen desequilibrio importante.,78d9c108
+1,no_competencia,critico,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,ff559140
+2,modificacion_unilateral,critico,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,ff559140
+3,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,ff559140
+4,general,critico,Art. 1400 CC,No deben existir clausulas que generen desequilibrio importante.,ff559140
+1,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,fe39fcea
+5,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,a83d891d
+5,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,452c68a6
+2,no_competencia,alto,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,461c4b3e
+3,propiedad_intelectual,critico,Dec. Leg. 822,La cesion de derechos debe ser clara y proporcionada.,461c4b3e
+4,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,461c4b3e
+6,rescision,critico,Art. 1371 CC,La resolucion requiere causal y comunicacion valida.,461c4b3e
+7,arbitraje,alto,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,461c4b3e
+1,jornada,critico,Art. 25 Constitucion,No es valido imponer disponibilidad permanente o jornadas desproporcionadas.,a6d656a8
+2,no_competencia,alto,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,a6d656a8
+3,propiedad_intelectual,critico,Dec. Leg. 822,La cesion de derechos debe ser clara y proporcionada.,a6d656a8
+4,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,a6d656a8
+6,rescision,critico,Art. 1371 CC,La resolucion requiere causal y comunicacion valida.,a6d656a8
+7,arbitraje,alto,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,a6d656a8
+1,jornada,critico,Art. 25 Constitucion,No es valido imponer disponibilidad permanente o jornadas desproporcionadas.,ab1167bb
+2,no_competencia,alto,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,ab1167bb
+3,propiedad_intelectual,critico,Dec. Leg. 822,La cesion de derechos debe ser clara y proporcionada.,ab1167bb
+4,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,ab1167bb
+5,penalidad,alto,Art. 1346 CC,Penalidad excesiva reducible por el juez.,ab1167bb
+6,rescision,critico,Art. 1371 CC,La resolucion requiere causal y comunicacion valida.,ab1167bb
+7,arbitraje,alto,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,ab1167bb
+1,jornada,critico,Art. 25 Constitucion,No es valido imponer disponibilidad permanente o jornadas desproporcionadas.,ba2197ce
+2,no_competencia,alto,Art. 1400 CC,Una restriccion excesiva puede ser abusiva.,ba2197ce
+3,propiedad_intelectual,critico,Dec. Leg. 822,La cesion de derechos debe ser clara y proporcionada.,ba2197ce
+4,remuneracion_abusiva,critico,Art. 24 Constitucion,La remuneracion debe ser equitativa y suficiente; no pueden imponerse descuentos o esperas desproporcionadas.,ba2197ce
+5,penalidad,alto,Art. 1346 CC,Penalidad excesiva reducible por el juez.,ba2197ce
+6,arbitraje,alto,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,ba2197ce
+1,jornada,critico,Art. 25 Constitucion,No es valido imponer disponibilidad permanente o jornadas desproporcionadas.,f47d94a0
+4,penalidad,critico,Art. 1346 CC,Penalidad excesiva reducible por el juez.,f47d94a0
+4,penalidad,critico,Art. 1346 CC,Penalidad excesiva reducible por el juez.,b6bc0819
+2,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,6e785cc5
+3,modificacion_unilateral,critico,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,6e785cc5
+4,arbitraje,critico,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,6e785cc5
+2,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,312d0f3f
+3,modificacion_unilateral,alto,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,312d0f3f
+4,arbitraje,critico,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,312d0f3f

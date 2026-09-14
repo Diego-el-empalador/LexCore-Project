@@ -1,0 +1,34 @@
+auditoria_id,contrato_id,fecha,total_clausulas,clausulas_riesgo,resultado,score,nivel_riesgo,nombre,categoria,motor_riesgo,fuente_tokenizacion
+95f9e8dc,32b49cfd,2026-06-09T00:41:05.964937,1,1,con_riesgos,95,BAJO,,,,
+dce36b89,6ba1c4d9,2026-06-09T00:47:15.441525,1,0,aprobado,95,BAJO,,,,
+b446d99c,0a3bea72,2026-06-09T00:49:28.478579,50000,0,aprobado,0,CRITICO,,,,
+08354dbb,b0613d22,2026-06-09T00:58:56.174141,2000,0,aprobado,0,CRITICO,,,,
+59aae5ee,995b6042,2026-06-09T00:59:40.645770,8,1,con_riesgos,50,ALTO,,,,
+2d816642,7c76b1cd,2026-06-09T09:12:10.002915,8,1,con_riesgos,50,ALTO,,,,
+56e81210,ae106f4e,2026-06-29T20:05:13.197012,1,1,con_riesgos,75,MEDIO,Contrato Prueba,servicios,python_keyword_fallback,scala
+1749231d,399e379f,2026-06-29T20:06:07.688449,1,2,con_riesgos,60,MEDIO,Contrato Prueba,servicios,prolog,scala
+60c9408d,3c167504,2026-06-29T20:06:44.656878,1,2,con_riesgos,60,MEDIO,Contrato Prueba,servicios,prolog,scala
+ce162f18,12af5603,2026-06-29T20:07:14.683755,3,4,con_riesgos,0,CRITICO,Contrato Prueba,servicios,prolog,mixto_python_scala
+96c4d2b2,0a1f81fe,2026-06-29T20:07:29.407072,2,2,con_riesgos,70,MEDIO,uno.txt,servicios,prolog,mixto_python_scala
+a8756a79,19e60c85,2026-06-29T20:07:30.359585,2,4,con_riesgos,35,CRITICO,dos.txt,servicios,prolog,mixto_python_scala
+128548ff,1dcdc9b7,2026-06-29T20:17:49.686442,1,1,con_riesgos,75,MEDIO,contrato_prestacion_servicios-v2.pdf,laboral,prolog,scala
+9e9ea7c8,e1f0acaa,2026-06-29T20:20:11.007539,3,0,aprobado,85,BAJO,Contrato Sano,servicios,prolog,mixto_python_scala
+c7896d70,9be8c3a0,2026-06-29T20:20:11.945005,3,3,con_riesgos,0,CRITICO,Contrato Riesgoso,servicios,prolog,mixto_python_scala
+c8fc48c8,659f9577,2026-06-29T20:20:43.231431,3,3,con_riesgos,0,CRITICO,Contrato Riesgoso,servicios,prolog,mixto_python_scala
+851938ca,931a2236,2026-06-29T20:22:28.145526,5,0,aprobado,75,MEDIO,Contrato Segmentacion,servicios,prolog,mixto_python_scala
+f648f438,e73c2bd2,2026-06-29T20:24:54.567561,7,0,aprobado,65,MEDIO,contrato_prestacion_servicios-v2.pdf,laboral,prolog,scala
+c4021bad,78d9c108,2026-06-29T20:26:12.301743,4,4,con_riesgos,0,CRITICO,Contrato Injusto,servicios,prolog,mixto_python_scala
+bd345406,ff559140,2026-06-29T20:26:32.865167,4,4,con_riesgos,0,CRITICO,Contrato Injusto,servicios,prolog,mixto_python_scala
+1f0c746c,08b2733d,2026-06-29T20:27:26.954625,7,0,aprobado,65,MEDIO,contrato_prestacion_servicios-v2.pdf,laboral,prolog,scala
+4f59c877,7778a3c3,2026-06-29T20:27:30.544545,7,0,aprobado,65,MEDIO,contrato_prestacion_servicios-v2.pdf,laboral,prolog,scala
+1267441b,fe39fcea,2026-06-29T20:29:33.379701,1,1,con_riesgos,15,CRITICO,Caso Usuario,laboral,prolog,scala
+3152f612,a83d891d,2026-06-29T20:30:44.139889,7,1,con_riesgos,28,CRITICO,contrato_prestacion_servicios-v2.pdf,laboral,prolog,scala
+8430eb95,452c68a6,2026-06-29T20:34:54.124462,8,1,con_riesgos,23,CRITICO,Contrato Usuario,laboral,prolog,scala
+3233a283,461c4b3e,2026-06-29T20:36:12.044004,7,5,con_riesgos,0,CRITICO,Contrato Usuario,laboral,prolog,scala
+0c9504f6,a6d656a8,2026-06-29T20:36:58.161708,7,6,con_riesgos,0,CRITICO,Contrato Usuario,laboral,prolog,scala
+8c43cd38,ab1167bb,2026-06-29T20:37:38.250272,7,7,con_riesgos,0,CRITICO,Contrato Usuario,laboral,prolog,scala
+54b70812,ba2197ce,2026-06-29T20:38:16.848323,6,6,con_riesgos,0,CRITICO,contrato_prestacion_servicios-v2.pdf,laboral,prolog,scala
+d4335ddd,f47d94a0,2026-06-29T20:41:24.422207,5,2,con_riesgos,0,CRITICO,contrato_arrendamiento_corto.pdf,laboral,prolog,scala
+7dc331df,b6bc0819,2026-06-29T20:49:32.196614,5,1,con_riesgos,31,CRITICO,contrato_arrendamiento_corto.pdf,laboral,prolog,scala
+bf7ddddb,6e785cc5,2026-06-29T20:50:21.033758,4,3,con_riesgos,0,CRITICO,Contrato Demo Servicios,laboral,prolog,mixto_python_scala
+0b02bfad,312d0f3f,2026-06-30T00:14:02.234248,4,3,con_riesgos,0,CRITICO,Contrato Demo Servicios,laboral,python_keyword_fallback,mixto_python_scala

@@ -1,0 +1,10 @@
+{
+  "tipos": [
+    "obligacion",
+    "plazo",
+    "penalidad",
+    "confidencialidad",
+    "rescision",
+    "general"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "niveles": [
+    { "nombre": "bajo",    "valor": 1, "descripcion": "Riesgo menor, puede revisarse" },
+    { "nombre": "medio",   "valor": 2, "descripcion": "Requiere revisión antes de firmar" },
+    { "nombre": "alto",    "valor": 3, "descripcion": "Debe modificarse antes de firmar" },
+    { "nombre": "critico", "valor": 4, "descripcion": "Potencialmente ilegal o muy perjudicial" }
+  ]
+}

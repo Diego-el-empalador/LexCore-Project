@@ -1,0 +1,7 @@
+{
+  "normas": [
+    { "codigo": "CC-1351", "nombre": "Contrato de trabajo",     "tipo": "laboral"   },
+    { "codigo": "CC-1402", "nombre": "Obligaciones civiles",    "tipo": "civil"     },
+    { "codigo": "CC-1551", "nombre": "Contratos mercantiles",   "tipo": "comercial" }
+  ]
+}

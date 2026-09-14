@@ -1,0 +1,2 @@
+contrato_id,nombre,categoria,score,nivel_riesgo,total_clausulas,clausulas_riesgosas,fuente_tokenizacion,motor_riesgo
+b6bc0819,contrato_arrendamiento_corto.pdf,laboral,31,CRITICO,5,1,scala,prolog

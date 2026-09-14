@@ -1,0 +1,29 @@
+# Scala / sbt
+target/
+project/target/
+project/project/
+*.class
+*.jar
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Streamlit
+.streamlit/
+
+# Data temporales
+model/data/contratos/tmp_*
+model/data/resultados/tmp_*
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
