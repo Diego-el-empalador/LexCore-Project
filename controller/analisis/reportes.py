@@ -58,6 +58,69 @@ def generar_reporte_texto(resultado: dict) -> str:
         bloques.append("- No se detectaron hallazgos de riesgo relevantes.")
     return "\n".join(bloques)
 
+def generar_reporte_pdf(resultado: dict) -> bytes:
+    from io import BytesIO
+
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.units import cm
+    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(
+        buffer,
+        pagesize=A4,
+        topMargin=2 * cm,
+        bottomMargin=2 * cm,
+    )
+    estilos = getSampleStyleSheet()
+    elementos = [
+        Paragraph(f"Reporte LexCore - {resultado.get('nombre', 'Contrato')}", estilos["Title"]),
+        Spacer(1, 0.5 * cm),
+        Paragraph(f"<b>Contrato ID:</b> {resultado.get('contrato_id')}", estilos["Normal"]),
+        Paragraph(f"<b>Categoria:</b> {resultado.get('categoria')}", estilos["Normal"]),
+        Paragraph(f"<b>Score:</b> {resultado.get('score')} / 100", estilos["Normal"]),
+        Paragraph(f"<b>Nivel de riesgo:</b> {resultado.get('nivel_riesgo')}", estilos["Normal"]),
+        Spacer(1, 0.5 * cm),
+        Paragraph(resultado.get("resumen_ejecutivo", ""), estilos["Normal"]),
+        Spacer(1, 0.7 * cm),
+        Paragraph("Hallazgos principales", estilos["Heading2"]),
+    ]
+
+    hallazgos = resultado.get("hallazgos", [])
+    if hallazgos:
+        filas = [["Cláusula", "Riesgo", "Severidad", "Artículo"]]
+        for hallazgo in hallazgos:
+            filas.append(
+                [
+                    str(hallazgo.get("clausula_id", "")),
+                    str(hallazgo.get("tipo_riesgo", "")),
+                    str(hallazgo.get("severidad", "")),
+                    str(hallazgo.get("articulo_violado", "")),
+                ]
+            )
+        tabla = Table(filas, hAlign="LEFT")
+        tabla.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f2937")),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+                    ("FONTSIZE", (0, 0), (-1, -1), 9),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ]
+            )
+        )
+        elementos.append(tabla)
+    else:
+        elementos.append(Paragraph("No se detectaron hallazgos de riesgo relevantes.", estilos["Normal"]))
+
+    doc.build(elementos)
+    logger.info(f"Reporte PDF generado para contrato {resultado.get('contrato_id')}")
+    return buffer.getvalue()
+
+
 
 def generar_reporte_comparativo_csv(resultados: list[dict]) -> str:
     df = pd.DataFrame(
