@@ -24,3 +24,15 @@ MODEL/data (CSV / JSON)
 5. `estadisticas.py` calcula métricas con pandas/numpy.
 6. Los resultados se guardan en `model/data/` y se devuelven a la vista.
 7. `resultados.py` muestra hallazgos con badges de color por severidad.
+
+## Responsabilidades por capa
+
+La arquitectura de LexCore separa las responsabilidades del sistema para facilitar su mantenimiento y evolución.
+
+- **Vista:** permite la interacción del usuario con el sistema mediante Streamlit.
+- **Controlador:** coordina el flujo de información entre la interfaz y los módulos de análisis.
+- **Modelo Scala:** procesa y analiza las cláusulas obtenidas de los contratos.
+- **Modelo Prolog:** aplica reglas lógicas para identificar posibles cláusulas riesgosas.
+- **Datos:** almacena la información utilizada y generada durante el proceso de auditoría.
+
+Esta separación permite mantener los componentes organizados y facilita la incorporación de nuevas funcionalidades.
