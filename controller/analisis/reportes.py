@@ -120,6 +120,61 @@ def generar_reporte_pdf(resultado: dict) -> bytes:
     logger.info(f"Reporte PDF generado para contrato {resultado.get('contrato_id')}")
     return buffer.getvalue()
 
+def generar_reporte_xlsx(resultado: dict) -> bytes:
+    from io import BytesIO
+
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, PatternFill
+
+    encabezado_fill = PatternFill(start_color="1F2937", end_color="1F2937", fill_type="solid")
+    encabezado_font = Font(color="FFFFFF", bold=True)
+
+    wb = Workbook()
+
+    resumen = wb.active
+    resumen.title = "Resumen"
+    resumen.append(["Campo", "Valor"])
+    for celda in resumen[1]:
+        celda.fill = encabezado_fill
+        celda.font = encabezado_font
+    filas_resumen = [
+        ("Contrato ID", resultado.get("contrato_id")),
+        ("Nombre", resultado.get("nombre")),
+        ("Categoria", resultado.get("categoria")),
+        ("Score", resultado.get("score")),
+        ("Nivel de riesgo", resultado.get("nivel_riesgo")),
+        ("Resumen ejecutivo", resultado.get("resumen_ejecutivo")),
+    ]
+    for fila in filas_resumen:
+        resumen.append(fila)
+    resumen.column_dimensions["A"].width = 20
+    resumen.column_dimensions["B"].width = 60
+
+    hallazgos_sheet = wb.create_sheet("Hallazgos")
+    encabezados = ["Clausula ID", "Tipo de riesgo", "Severidad", "Articulo violado", "Descripcion"]
+    hallazgos_sheet.append(encabezados)
+    for celda in hallazgos_sheet[1]:
+        celda.fill = encabezado_fill
+        celda.font = encabezado_font
+
+    hallazgos = resultado.get("hallazgos", [])
+    for hallazgo in hallazgos:
+        hallazgos_sheet.append(
+            [
+                hallazgo.get("clausula_id"),
+                hallazgo.get("tipo_riesgo"),
+                hallazgo.get("severidad"),
+                hallazgo.get("articulo_violado"),
+                hallazgo.get("descripcion_riesgo"),
+            ]
+        )
+    for columna, ancho in zip("ABCDE", [12, 22, 12, 18, 50]):
+        hallazgos_sheet.column_dimensions[columna].width = ancho
+
+    buffer = BytesIO()
+    wb.save(buffer)
+    logger.info(f"Reporte XLSX generado para contrato {resultado.get('contrato_id')}")
+    return buffer.getvalue()
 
 
 def generar_reporte_comparativo_csv(resultados: list[dict]) -> str:
