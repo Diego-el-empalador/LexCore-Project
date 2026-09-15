@@ -27,3 +27,14 @@ cd ../..
 # 4. Ejecutar la aplicación
 streamlit run view/app.py
 ```
+## Verificación de la instalación
+
+Una vez iniciada la aplicación, verificar que la interfaz de LexCore cargue correctamente en el navegador.
+
+Para comprobar que las dependencias principales estén instaladas, se pueden ejecutar los siguientes comandos:
+
+```bash
+python --version
+java -version
+sbt --version
+swipl --version
