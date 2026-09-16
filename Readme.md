@@ -181,7 +181,7 @@ Severidades detectadas
 Distribución de tipos
 Hallazgos por cláusula
 Comparación con dataset
-Exportar JSON / TXT
+Exportar JSON / TXT / PDF / XLSX
 ```
 
 ### Estadísticas
