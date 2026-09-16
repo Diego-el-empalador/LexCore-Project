@@ -310,15 +310,28 @@ def analizar_contrato(
 
     contrato_id = str(uuid.uuid4())[:8]
     logger.info(f"Iniciando análisis del contrato '{nombre}' [{contrato_id}] categoria={categoria}")
-    guardar_contrato_raw(
-        {
-            "contrato_id": contrato_id,
-            "nombre": nombre,
-            "categoria": categoria,
-            "texto": texto,
-            "fecha": datetime.now().isoformat(),
-        }
-    )
+
+    try:
+        guardar_contrato_raw(
+            {
+                "contrato_id": contrato_id,
+                "nombre": nombre,
+                "categoria": categoria,
+                "texto": texto,
+                "fecha": datetime.now().isoformat(),
+            }
+        )
+    except Exception as exc:
+        logger.exception(
+            "Error al guardar el contrato '%s' [%s]: %s",
+            nombre,
+            contrato_id,
+            exc,
+        )
+        raise RuntimeError(
+            "No se pudo guardar el contrato antes de iniciar el análisis."
+        ) from exc
+
 
     timings: dict[str, float] = {}
     _notificar(progreso_callback, "Procesando con Scala...", 0.15)
