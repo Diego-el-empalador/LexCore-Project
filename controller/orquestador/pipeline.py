@@ -291,6 +291,17 @@ def analizar_contrato(
         raise ValueError(
             "El contrato contiene muy poco texto para realizar un análisis confiable."
         )
+
+    nombre = nombre.strip()
+
+    if not nombre:
+        raise ValueError("El nombre del contrato no puede estar vacío.")
+
+    if len(nombre) < 3:
+        raise ValueError(
+            "El nombre del contrato debe contener al menos 3 caracteres."
+        )
+
     contrato_id = str(uuid.uuid4())[:8]
     logger.info(f"Iniciando análisis del contrato '{nombre}' [{contrato_id}] categoria={categoria}")
     guardar_contrato_raw(
