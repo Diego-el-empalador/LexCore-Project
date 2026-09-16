@@ -282,6 +282,15 @@ def analizar_contrato(
     categoria: str = "general",
     progreso_callback: ProgressCallback | None = None,
 ) -> dict[str, Any]:
+    texto = texto.strip()
+
+    if not texto:
+        raise ValueError("El contrato no puede estar vacío.")
+
+    if len(texto) < 50:
+        raise ValueError(
+            "El contrato contiene muy poco texto para realizar un análisis confiable."
+        )
     contrato_id = str(uuid.uuid4())[:8]
     logger.info(f"Iniciando análisis del contrato '{nombre}' [{contrato_id}] categoria={categoria}")
     guardar_contrato_raw(
