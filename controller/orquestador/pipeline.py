@@ -282,6 +282,12 @@ def analizar_contrato(
     categoria: str = "general",
     progreso_callback: ProgressCallback | None = None,
 ) -> dict[str, Any]:
+    if not isinstance(texto, str):
+        raise TypeError("El contenido del contrato debe ser texto.")
+
+    if not isinstance(nombre, str):
+        raise TypeError("El nombre del contrato debe ser texto.")
+
     texto = texto.strip()
 
     if not texto:
