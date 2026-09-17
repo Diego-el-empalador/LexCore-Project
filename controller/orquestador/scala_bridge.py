@@ -1,3 +1,4 @@
+# Controlador principal encargado de la lógica y flujo de datos de LexCore
 import subprocess
 import json
 import tempfile
