@@ -217,15 +217,15 @@ Eliminar registro
 
 ## Créditos del equipo
 
-Completa esta sección con los nombres reales del grupo:
 
-| Integrante | Módulo / responsabilidad |
-|---|---|
-| `Diego`    | Frontend Streamlit / UX |
-| `Nombre 2` | Pipeline Python / analítica |
-| `Nombre 3` | Scala tokenizer |
-| `Nombre 4` | Prolog / base de conocimiento |
-| `Nombre 5` | Persistencia / dataset / documentación |
+
+| Integrantes |
+|---|
+| `Berrocal Reyes Camila Andrea`    | 
+| `Camasca Rodríguez Fernando Diego` |
+| `Cuzcano Quispe Alexander Javier` | 
+| `Meza Alcedo Jhair Christopher` |
+| `Usnayo Huamani Jair Stiven` |
 
 ## Comandos útiles
 
