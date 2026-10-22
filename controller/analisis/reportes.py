@@ -14,6 +14,13 @@ from controller.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+def _texto_seguro(valor) -> str:
+    """Escapa <, > y & para que reportlab no los interprete como marcado."""
+    from xml.sax.saxutils import escape
+
+    if valor is None:
+        return ""
+    return escape(str(valor))
 
 def generar_reporte(resultado: dict) -> str:
     reporte = {
@@ -57,6 +64,124 @@ def generar_reporte_texto(resultado: dict) -> str:
     else:
         bloques.append("- No se detectaron hallazgos de riesgo relevantes.")
     return "\n".join(bloques)
+
+def generar_reporte_pdf(resultado: dict) -> bytes:
+    from io import BytesIO
+
+    from reportlab.lib import colors
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.units import cm
+    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(
+        buffer,
+        pagesize=A4,
+        topMargin=2 * cm,
+        bottomMargin=2 * cm,
+    )
+    estilos = getSampleStyleSheet()
+    elementos = [
+        Paragraph(f"Reporte LexCore - {_texto_seguro(resultado.get('nombre') or 'Contrato')}", estilos["Title"]),
+        Spacer(1, 0.5 * cm),
+        Paragraph(f"<b>Contrato ID:</b> {_texto_seguro(resultado.get('contrato_id'))}", estilos["Normal"]),
+        Paragraph(f"<b>Categoria:</b> {_texto_seguro(resultado.get('categoria'))}", estilos["Normal"]),
+        Paragraph(f"<b>Score:</b> {_texto_seguro(resultado.get('score'))} / 100", estilos["Normal"]),
+        Paragraph(f"<b>Nivel de riesgo:</b> {_texto_seguro(resultado.get('nivel_riesgo'))}", estilos["Normal"]),
+        Spacer(1, 0.5 * cm),
+        Paragraph(_texto_seguro(resultado.get("resumen_ejecutivo")), estilos["Normal"]),
+        Spacer(1, 0.7 * cm),
+        Paragraph("Hallazgos principales", estilos["Heading2"]),
+    ]
+
+    hallazgos = resultado.get("hallazgos", [])
+    if hallazgos:
+        filas = [["Cláusula", "Riesgo", "Severidad", "Artículo"]]
+        for hallazgo in hallazgos:
+            filas.append(
+                [
+                    Paragraph(_texto_seguro(hallazgo.get("clausula_id")), estilos["Normal"]),
+                    Paragraph(_texto_seguro(hallazgo.get("tipo_riesgo")), estilos["Normal"]),
+                    Paragraph(_texto_seguro(hallazgo.get("severidad")), estilos["Normal"]),
+                    Paragraph(_texto_seguro(hallazgo.get("articulo_violado")), estilos["Normal"]),
+                ]
+            )
+        tabla = Table(filas, hAlign="LEFT")
+        tabla.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#1f2937")),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+                    ("FONTSIZE", (0, 0), (-1, -1), 9),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ]
+            )
+        )
+        elementos.append(tabla)
+    else:
+        elementos.append(Paragraph("No se detectaron hallazgos de riesgo relevantes.", estilos["Normal"]))
+
+    doc.build(elementos)
+    logger.info(f"Reporte PDF generado para contrato {resultado.get('contrato_id')}")
+    return buffer.getvalue()
+
+def generar_reporte_xlsx(resultado: dict) -> bytes:
+    from io import BytesIO
+
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, PatternFill
+
+    encabezado_fill = PatternFill(start_color="1F2937", end_color="1F2937", fill_type="solid")
+    encabezado_font = Font(color="FFFFFF", bold=True)
+
+    wb = Workbook()
+
+    resumen = wb.active
+    resumen.title = "Resumen"
+    resumen.append(["Campo", "Valor"])
+    for celda in resumen[1]:
+        celda.fill = encabezado_fill
+        celda.font = encabezado_font
+    filas_resumen = [
+        ("Contrato ID", resultado.get("contrato_id")),
+        ("Nombre", resultado.get("nombre")),
+        ("Categoria", resultado.get("categoria")),
+        ("Score", resultado.get("score")),
+        ("Nivel de riesgo", resultado.get("nivel_riesgo")),
+        ("Resumen ejecutivo", resultado.get("resumen_ejecutivo")),
+    ]
+    for fila in filas_resumen:
+        resumen.append(fila)
+    resumen.column_dimensions["A"].width = 20
+    resumen.column_dimensions["B"].width = 60
+
+    hallazgos_sheet = wb.create_sheet("Hallazgos")
+    encabezados = ["Clausula ID", "Tipo de riesgo", "Severidad", "Articulo violado", "Descripcion"]
+    hallazgos_sheet.append(encabezados)
+    for celda in hallazgos_sheet[1]:
+        celda.fill = encabezado_fill
+        celda.font = encabezado_font
+
+    hallazgos = resultado.get("hallazgos", [])
+    for hallazgo in hallazgos:
+        hallazgos_sheet.append(
+            [
+                hallazgo.get("clausula_id"),
+                hallazgo.get("tipo_riesgo"),
+                hallazgo.get("severidad"),
+                hallazgo.get("articulo_violado"),
+                hallazgo.get("descripcion_riesgo"),
+            ]
+        )
+    for columna, ancho in zip("ABCDE", [12, 22, 12, 18, 50]):
+        hallazgos_sheet.column_dimensions[columna].width = ancho
+
+    buffer = BytesIO()
+    wb.save(buffer)
+    logger.info(f"Reporte XLSX generado para contrato {resultado.get('contrato_id')}")
+    return buffer.getvalue()
 
 
 def generar_reporte_comparativo_csv(resultados: list[dict]) -> str:

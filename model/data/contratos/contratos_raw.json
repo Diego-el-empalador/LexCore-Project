@@ -194,5 +194,19 @@
     "categoria": "laboral",
     "texto": "CLÁUSULA I. OBJETO\nEl proveedor prestará servicios de consultoría tecnológica durante doce meses.\n\nCLÁUSULA II. DATOS PERSONALES\nEl cliente podrá compartir datos personales y biométricos de sus usuarios con terceros sin consentimiento adicional.\n\nCLÁUSULA III. MODIFICACIÓN UNILATERAL\nEl cliente podrá modificar unilateralmente el alcance, plazo y precio del servicio sin acuerdo del proveedor.\n\nCLÁUSULA IV. ARBITRAJE\nToda controversia será resuelta solo por arbitraje privado obligatorio renunciando a la vía judicial.\n",
     "fecha": "2026-06-30T00:14:01.846298"
+  },
+  {
+    "contrato_id": "9a8cc874",
+    "nombre": "Contrato de Arrendamiento",
+    "categoria": "arrendamiento",
+    "texto": "CLÁUSULA I. OBJETO\nEl proveedor prestará servicios de consultoría tecnológica durante doce meses.\n\nCLÁUSULA II. DATOS PERSONALES\nEl cliente podrá compartir datos personales y biométricos de sus usuarios con terceros sin consentimiento adicional.\n\nCLÁUSULA III. MODIFICACIÓN UNILATERAL\nEl cliente podrá modificar unilateralmente el alcance, plazo y precio del servicio sin acuerdo del proveedor.\n\nCLÁUSULA IV. ARBITRAJE\nToda controversia será resuelta solo por arbitraje privado obligatorio renunciando a la vía judicial.\n",
+    "fecha": "2026-09-15T17:29:55.377645"
+  },
+  {
+    "contrato_id": "5528a423",
+    "nombre": "a",
+    "categoria": "arrendamiento",
+    "texto": "No lose",
+    "fecha": "2026-09-15T17:31:06.979738"
   }
 ]

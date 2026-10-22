@@ -32,3 +32,5 @@ d4335ddd,f47d94a0,2026-06-29T20:41:24.422207,5,2,con_riesgos,0,CRITICO,contrato_
 7dc331df,b6bc0819,2026-06-29T20:49:32.196614,5,1,con_riesgos,31,CRITICO,contrato_arrendamiento_corto.pdf,laboral,prolog,scala
 bf7ddddb,6e785cc5,2026-06-29T20:50:21.033758,4,3,con_riesgos,0,CRITICO,Contrato Demo Servicios,laboral,prolog,mixto_python_scala
 0b02bfad,312d0f3f,2026-06-30T00:14:02.234248,4,3,con_riesgos,0,CRITICO,Contrato Demo Servicios,laboral,python_keyword_fallback,mixto_python_scala
+a6d184a5,9a8cc874,2026-09-15T17:29:55.439962,4,3,con_riesgos,0,CRITICO,Contrato de Arrendamiento,arrendamiento,prolog,mixto_python_scala
+91bf1234,5528a423,2026-09-15T17:31:07.012609,1,0,aprobado,95,BAJO,a,arrendamiento,prolog,mixto_python_scala

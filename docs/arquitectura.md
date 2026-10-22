@@ -24,3 +24,12 @@ MODEL/data (CSV / JSON)
 5. `estadisticas.py` calcula métricas con pandas/numpy.
 6. Los resultados se guardan en `model/data/` y se devuelven a la vista.
 7. `resultados.py` muestra hallazgos con badges de color por severidad.
+
+
+## Exportación de reportes
+
+Cada resultado individual puede exportarse en 4 formatos desde `descarga_reporte.py`:
+
+- **JSON** y **TXT**: generados con `generar_reporte` / `generar_reporte_texto`.
+- **PDF**: generado con `reportlab` en `generar_reporte_pdf`, incluye tabla de hallazgos.
+- **XLSX**: generado con `openpyxl` en `generar_reporte_xlsx`, con hojas "Resumen" y "Hallazgos".
