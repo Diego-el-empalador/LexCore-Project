@@ -70,3 +70,6 @@ contrato_id,clausula_id,tipo_riesgo,severidad,fecha
 2,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,312d0f3f
 3,modificacion_unilateral,alto,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,312d0f3f
 4,arbitraje,critico,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,312d0f3f
+2,datos_personales,critico,Ley 29733,El tratamiento de datos necesita base legal y finalidad.,9a8cc874
+3,modificacion_unilateral,critico,Art. 1354 CC,No se admiten cambios unilaterales abusivos.,9a8cc874
+4,arbitraje,critico,D. Leg. 1071,El arbitraje debe respetar equilibrio y consentimiento informado.,9a8cc874

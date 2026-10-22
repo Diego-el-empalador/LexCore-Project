@@ -14,6 +14,13 @@ from controller.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+def _texto_seguro(valor) -> str:
+    """Escapa <, > y & para que reportlab no los interprete como marcado."""
+    from xml.sax.saxutils import escape
+
+    if valor is None:
+        return ""
+    return escape(str(valor))
 
 def generar_reporte(resultado: dict) -> str:
     reporte = {
@@ -76,14 +83,14 @@ def generar_reporte_pdf(resultado: dict) -> bytes:
     )
     estilos = getSampleStyleSheet()
     elementos = [
-        Paragraph(f"Reporte LexCore - {resultado.get('nombre', 'Contrato')}", estilos["Title"]),
+        Paragraph(f"Reporte LexCore - {_texto_seguro(resultado.get('nombre') or 'Contrato')}", estilos["Title"]),
         Spacer(1, 0.5 * cm),
-        Paragraph(f"<b>Contrato ID:</b> {resultado.get('contrato_id')}", estilos["Normal"]),
-        Paragraph(f"<b>Categoria:</b> {resultado.get('categoria')}", estilos["Normal"]),
-        Paragraph(f"<b>Score:</b> {resultado.get('score')} / 100", estilos["Normal"]),
-        Paragraph(f"<b>Nivel de riesgo:</b> {resultado.get('nivel_riesgo')}", estilos["Normal"]),
+        Paragraph(f"<b>Contrato ID:</b> {_texto_seguro(resultado.get('contrato_id'))}", estilos["Normal"]),
+        Paragraph(f"<b>Categoria:</b> {_texto_seguro(resultado.get('categoria'))}", estilos["Normal"]),
+        Paragraph(f"<b>Score:</b> {_texto_seguro(resultado.get('score'))} / 100", estilos["Normal"]),
+        Paragraph(f"<b>Nivel de riesgo:</b> {_texto_seguro(resultado.get('nivel_riesgo'))}", estilos["Normal"]),
         Spacer(1, 0.5 * cm),
-        Paragraph(resultado.get("resumen_ejecutivo", ""), estilos["Normal"]),
+        Paragraph(_texto_seguro(resultado.get("resumen_ejecutivo")), estilos["Normal"]),
         Spacer(1, 0.7 * cm),
         Paragraph("Hallazgos principales", estilos["Heading2"]),
     ]
@@ -94,10 +101,10 @@ def generar_reporte_pdf(resultado: dict) -> bytes:
         for hallazgo in hallazgos:
             filas.append(
                 [
-                    str(hallazgo.get("clausula_id", "")),
-                    str(hallazgo.get("tipo_riesgo", "")),
-                    str(hallazgo.get("severidad", "")),
-                    str(hallazgo.get("articulo_violado", "")),
+                    Paragraph(_texto_seguro(hallazgo.get("clausula_id")), estilos["Normal"]),
+                    Paragraph(_texto_seguro(hallazgo.get("tipo_riesgo")), estilos["Normal"]),
+                    Paragraph(_texto_seguro(hallazgo.get("severidad")), estilos["Normal"]),
+                    Paragraph(_texto_seguro(hallazgo.get("articulo_violado")), estilos["Normal"]),
                 ]
             )
         tabla = Table(filas, hAlign="LEFT")
