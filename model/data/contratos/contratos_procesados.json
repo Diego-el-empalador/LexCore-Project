@@ -472839,5 +472839,282 @@
     "fecha_analisis": "2026-06-30T00:14:02.234248",
     "total_clausulas": 4,
     "clausulas_riesgosas": 3
+  },
+  {
+    "contrato_id": "9a8cc874",
+    "nombre": "Contrato de Arrendamiento",
+    "categoria": "arrendamiento",
+    "clausulas": [
+      {
+        "id": "1",
+        "tipo": "plazo",
+        "tipo_base": "plazo",
+        "tipo_riesgo_principal": "plazo",
+        "texto": "CLÁUSULA I. OBJETO El proveedor prestará servicios de consultoría tecnológica durante doce meses.",
+        "severidad": "bajo",
+        "es_riesgosa": false,
+        "peso_riesgo": 1,
+        "hallazgos": [],
+        "categoria": "arrendamiento",
+        "articulo_referencia": "Art. 1688° CC — duración del arrendamiento",
+        "recomendacion": "Revisar las obligaciones del arrendador y arrendatario conforme al Código Civil Peruano (Arts. 1666°-1712°).",
+        "color_severidad": "#28a745",
+        "explicacion": "La clausula afecta el equilibrio entre arrendador y arrendatario; debe revisar plazo, penalidades, resolucion y uso de datos para evitar abusos."
+      },
+      {
+        "id": "2",
+        "tipo": "datos_personales",
+        "tipo_base": "datos_personales",
+        "tipo_riesgo_principal": "datos_personales",
+        "texto": "CLÁUSULA II. DATOS PERSONALES El cliente podrá compartir datos personales y biométricos de sus usuarios con terceros sin consentimiento adicional.",
+        "severidad": "critico",
+        "es_riesgosa": true,
+        "peso_riesgo": 4,
+        "hallazgos": [
+          {
+            "clausula_id": 2,
+            "tipo_riesgo": "datos_personales",
+            "severidad": "critico",
+            "articulo_violado": "Ley 29733",
+            "descripcion_riesgo": "El tratamiento de datos necesita base legal y finalidad."
+          }
+        ],
+        "categoria": "arrendamiento",
+        "articulo_referencia": "Ley 29733",
+        "recomendacion": "Restringir el tratamiento de datos a finalidades validas y con consentimiento o base legal.",
+        "color_severidad": "#dc3545",
+        "explicacion": "La clausula afecta el equilibrio entre arrendador y arrendatario; debe revisar plazo, penalidades, resolucion y uso de datos para evitar abusos."
+      },
+      {
+        "id": "3",
+        "tipo": "modificacion_unilateral",
+        "tipo_base": "modificacion_unilateral",
+        "tipo_riesgo_principal": "modificacion_unilateral",
+        "texto": "CLÁUSULA III. MODIFICACIÓN UNILATERAL El cliente podrá modificar unilateralmente el alcance, plazo y precio del servicio sin acuerdo del proveedor.",
+        "severidad": "critico",
+        "es_riesgosa": true,
+        "peso_riesgo": 4,
+        "hallazgos": [
+          {
+            "clausula_id": 3,
+            "tipo_riesgo": "modificacion_unilateral",
+            "severidad": "critico",
+            "articulo_violado": "Art. 1354 CC",
+            "descripcion_riesgo": "No se admiten cambios unilaterales abusivos."
+          }
+        ],
+        "categoria": "arrendamiento",
+        "articulo_referencia": "Art. 1354 CC",
+        "recomendacion": "Eliminar facultades de cambio unilateral y exigir aprobacion expresa de ambas partes.",
+        "color_severidad": "#dc3545",
+        "explicacion": "La clausula afecta el equilibrio entre arrendador y arrendatario; debe revisar plazo, penalidades, resolucion y uso de datos para evitar abusos."
+      },
+      {
+        "id": "4",
+        "tipo": "arbitraje",
+        "tipo_base": "arbitraje",
+        "tipo_riesgo_principal": "arbitraje",
+        "texto": "CLÁUSULA IV. ARBITRAJE Toda controversia será resuelta solo por arbitraje privado obligatorio renunciando a la vía judicial.",
+        "severidad": "critico",
+        "es_riesgosa": true,
+        "peso_riesgo": 4,
+        "hallazgos": [
+          {
+            "clausula_id": 4,
+            "tipo_riesgo": "arbitraje",
+            "severidad": "critico",
+            "articulo_violado": "D. Leg. 1071",
+            "descripcion_riesgo": "El arbitraje debe respetar equilibrio y consentimiento informado."
+          }
+        ],
+        "categoria": "arrendamiento",
+        "articulo_referencia": "D. Leg. 1071",
+        "recomendacion": "Equilibrar la solucion de controversias y evitar renuncias anticipadas a la via judicial.",
+        "color_severidad": "#dc3545",
+        "explicacion": "La clausula afecta el equilibrio entre arrendador y arrendatario; debe revisar plazo, penalidades, resolucion y uso de datos para evitar abusos."
+      }
+    ],
+    "hallazgos": [
+      {
+        "clausula_id": 2,
+        "tipo_riesgo": "datos_personales",
+        "severidad": "critico",
+        "articulo_violado": "Ley 29733",
+        "descripcion_riesgo": "El tratamiento de datos necesita base legal y finalidad."
+      },
+      {
+        "clausula_id": 3,
+        "tipo_riesgo": "modificacion_unilateral",
+        "severidad": "critico",
+        "articulo_violado": "Art. 1354 CC",
+        "descripcion_riesgo": "No se admiten cambios unilaterales abusivos."
+      },
+      {
+        "clausula_id": 4,
+        "tipo_riesgo": "arbitraje",
+        "severidad": "critico",
+        "articulo_violado": "D. Leg. 1071",
+        "descripcion_riesgo": "El arbitraje debe respetar equilibrio y consentimiento informado."
+      }
+    ],
+    "estadisticas": {
+      "total": 4,
+      "riesgo": 3,
+      "porcentaje_riesgo": 75.0,
+      "tipos_clausula": {
+        "plazo": 1,
+        "datos_personales": 1,
+        "modificacion_unilateral": 1,
+        "arbitraje": 1
+      },
+      "severidades": {
+        "critico": 3
+      },
+      "promedio_tokens": 17,
+      "promedio_longitud": 128
+    },
+    "perfil": {
+      "total_clausulas": 4,
+      "clausulas_riesgo": 3,
+      "porcentaje_riesgo": 75.0,
+      "riesgo_promedio": 3.25,
+      "riesgo_desviacion": 1.3,
+      "riesgo_maximo": 4,
+      "longitud_promedio": 128.5,
+      "tipos_clausula": {
+        "plazo": 1,
+        "datos_personales": 1,
+        "modificacion_unilateral": 1,
+        "arbitraje": 1
+      },
+      "severidades": {
+        "critico": 3,
+        "bajo": 1
+      },
+      "fecha_calculo": "2026-09-15T17:29:55.429102"
+    },
+    "score": 0,
+    "nivel_riesgo": "CRITICO",
+    "recomendacion_final": "Contrato con riesgos criticos. NO firmar ni aceptar sus terminos sin correcciones y revision legal urgente.",
+    "resumen_ejecutivo": "El contrato 'Contrato de Arrendamiento' fue evaluado con un score de seguridad de 0/100 y un nivel de riesgo CRITICO. Se revisaron 4 clausulas, de las cuales 3 presentan observaciones relevantes. Contrato con riesgos criticos. NO firmar ni aceptar sus terminos sin correcciones y revision legal urgente.",
+    "anomalias": [
+      {
+        "id": "1",
+        "tipo": "plazo",
+        "motivo": "riesgo_atipico",
+        "score_z": 1.73,
+        "texto": "CLÁUSULA I. OBJETO El proveedor prestará servicios de consultoría tecnológica durante doce meses."
+      }
+    ],
+    "comparacion_dataset": {
+      "score_promedio_dataset": 76.69,
+      "diferencia_score": -76.69,
+      "tipo_mas_frecuente": "plazo",
+      "frecuencias_palabras": {
+        "arrendatario": 39,
+        "acuerdo": 30,
+        "podra": 26,
+        "arrendador": 24,
+        "previa": 22,
+        "salvo": 21,
+        "cualquier": 18,
+        "expreso": 15,
+        "contrario": 15,
+        "plazo": 15
+      }
+    },
+    "fuente_tokenizacion": "mixto_python_scala",
+    "motor_riesgo": "prolog",
+    "timings": {
+      "tokenizacion": 0.023,
+      "prolog": 0.016,
+      "estadisticas": 0.018
+    },
+    "fecha_analisis": "2026-09-15T17:29:55.439962",
+    "total_clausulas": 4,
+    "clausulas_riesgosas": 3
+  },
+  {
+    "contrato_id": "5528a423",
+    "nombre": "a",
+    "categoria": "arrendamiento",
+    "clausulas": [
+      {
+        "id": "1",
+        "tipo": "general",
+        "tipo_base": "general",
+        "tipo_riesgo_principal": "general",
+        "texto": "No lose",
+        "severidad": "bajo",
+        "es_riesgosa": false,
+        "peso_riesgo": 1,
+        "hallazgos": [],
+        "categoria": "arrendamiento",
+        "articulo_referencia": "Art. 1666° CC — arrendamiento de bienes",
+        "recomendacion": "Revisar las obligaciones del arrendador y arrendatario conforme al Código Civil Peruano (Arts. 1666°-1712°).",
+        "color_severidad": "#28a745",
+        "explicacion": "La clausula afecta el equilibrio entre arrendador y arrendatario; debe revisar plazo, penalidades, resolucion y uso de datos para evitar abusos."
+      }
+    ],
+    "hallazgos": [],
+    "estadisticas": {
+      "total": 1,
+      "riesgo": 0,
+      "porcentaje_riesgo": 0.0,
+      "tipos_clausula": {
+        "general": 1
+      },
+      "severidades": {},
+      "promedio_tokens": 2,
+      "promedio_longitud": 7
+    },
+    "perfil": {
+      "total_clausulas": 1,
+      "clausulas_riesgo": 0,
+      "porcentaje_riesgo": 0.0,
+      "riesgo_promedio": 1.0,
+      "riesgo_desviacion": 0.0,
+      "riesgo_maximo": 1,
+      "longitud_promedio": 7.0,
+      "tipos_clausula": {
+        "general": 1
+      },
+      "severidades": {
+        "bajo": 1
+      },
+      "fecha_calculo": "2026-09-15T17:31:07.004362"
+    },
+    "score": 95,
+    "nivel_riesgo": "BAJO",
+    "recomendacion_final": "Contrato con bajo nivel de riesgo. Aun asi, conviene revisar los detalles antes de firmar.",
+    "resumen_ejecutivo": "El contrato 'a' fue evaluado con un score de seguridad de 95/100 y un nivel de riesgo BAJO. Se revisaron 1 clausulas, de las cuales 0 presentan observaciones relevantes. Contrato con bajo nivel de riesgo. Aun asi, conviene revisar los detalles antes de firmar.",
+    "anomalias": [],
+    "comparacion_dataset": {
+      "score_promedio_dataset": 76.69,
+      "diferencia_score": 18.31,
+      "tipo_mas_frecuente": "general",
+      "frecuencias_palabras": {
+        "arrendatario": 39,
+        "acuerdo": 30,
+        "podra": 26,
+        "arrendador": 24,
+        "previa": 22,
+        "salvo": 21,
+        "cualquier": 18,
+        "expreso": 15,
+        "contrario": 15,
+        "plazo": 15
+      }
+    },
+    "fuente_tokenizacion": "mixto_python_scala",
+    "motor_riesgo": "prolog",
+    "timings": {
+      "tokenizacion": 0.004,
+      "prolog": 0.013,
+      "estadisticas": 0.012
+    },
+    "fecha_analisis": "2026-09-15T17:31:07.012609",
+    "total_clausulas": 1,
+    "clausulas_riesgosas": 0
   }
 ]
