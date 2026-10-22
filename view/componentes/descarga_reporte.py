@@ -36,7 +36,7 @@ def mostrar_descarga(resultado: dict) -> None:
     col1, col2 = st.columns(2)
     col1.download_button(
         label="Descargar reporte JSON",
-        data=reporte_pdf if reporte_pdf is not None else b"",
+        data=reporte_json if reporte_json is not None else b"",
         disabled=reporte_json is None,
         file_name=f"reporte_{resultado.get('contrato_id', 'lexcore')}.json",
         mime="application/json",
@@ -44,7 +44,7 @@ def mostrar_descarga(resultado: dict) -> None:
     )
     col2.download_button(
         label="Descargar reporte TXT",
-        data=reporte_pdf if reporte_pdf is not None else b"",
+        data=reporte_texto if reporte_texto is not None else b"",
         disabled=reporte_texto is None,
         file_name=f"reporte_{resultado.get('contrato_id', 'lexcore')}.txt",
         mime="text/plain",
@@ -62,7 +62,7 @@ def mostrar_descarga(resultado: dict) -> None:
     )
     col4.download_button(
         label="Descargar reporte XLSX",
-        data=reporte_pdf if reporte_pdf is not None else b"",
+        data=reporte_xlsx if reporte_xlsx is not None else b"",
         disabled=reporte_xlsx is None,
         file_name=f"reporte_{resultado.get('contrato_id', 'lexcore')}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
