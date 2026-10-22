@@ -282,17 +282,56 @@ def analizar_contrato(
     categoria: str = "general",
     progreso_callback: ProgressCallback | None = None,
 ) -> dict[str, Any]:
+    if not isinstance(texto, str):
+        raise TypeError("El contenido del contrato debe ser texto.")
+
+    if not isinstance(nombre, str):
+        raise TypeError("El nombre del contrato debe ser texto.")
+
+    texto = texto.strip()
+
+    if not texto:
+        raise ValueError("El contrato no puede estar vacío.")
+
+    if len(texto) < 50:
+        raise ValueError(
+            "El contrato contiene muy poco texto para realizar un análisis confiable."
+        )
+
+    nombre = nombre.strip()
+
+    if not nombre:
+        raise ValueError("El nombre del contrato no puede estar vacío.")
+
+    if len(nombre) < 3:
+        raise ValueError(
+            "El nombre del contrato debe contener al menos 3 caracteres."
+        )
+
     contrato_id = str(uuid.uuid4())[:8]
     logger.info(f"Iniciando análisis del contrato '{nombre}' [{contrato_id}] categoria={categoria}")
-    guardar_contrato_raw(
-        {
-            "contrato_id": contrato_id,
-            "nombre": nombre,
-            "categoria": categoria,
-            "texto": texto,
-            "fecha": datetime.now().isoformat(),
-        }
-    )
+
+    try:
+        guardar_contrato_raw(
+            {
+                "contrato_id": contrato_id,
+                "nombre": nombre,
+                "categoria": categoria,
+                "texto": texto,
+                "fecha": datetime.now().isoformat(),
+            }
+        )
+    except Exception as exc:
+        logger.exception(
+            "Error al guardar el contrato '%s' [%s]: %s",
+            nombre,
+            contrato_id,
+            exc,
+        )
+        raise RuntimeError(
+            "No se pudo guardar el contrato antes de iniciar el análisis."
+        ) from exc
+
 
     timings: dict[str, float] = {}
     _notificar(progreso_callback, "Procesando con Scala...", 0.15)
@@ -353,27 +392,38 @@ def analizar_contrato(
         "clausulas_riesgosas": len([c for c in clausulas_evaluadas if c.get("es_riesgosa")]),
     }
 
-    guardar_contrato_procesado(resultado)
-    guardar_hallazgos(contrato_id, hallazgos)
-    guardar_auditoria(
-        {
-            "auditoria_id": str(uuid.uuid4())[:8],
-            "contrato_id": contrato_id,
-            "fecha": resultado["fecha_analisis"],
-            "total_clausulas": len(clausulas_evaluadas),
-            "clausulas_riesgo": len(hallazgos),
-            "resultado": "con_riesgos" if hallazgos else "aprobado",
-            "score": resumen_dictamen["score"],
-            "nivel_riesgo": resumen_dictamen["nivel_riesgo"],
-            "nombre": nombre,
-            "categoria": categoria,
-            "motor_riesgo": motor_riesgo,
-            "fuente_tokenizacion": fuente_tokenizacion,
-        }
-    )
+    try:
+        guardar_contrato_procesado(resultado)
+        guardar_hallazgos(contrato_id, hallazgos)
+        guardar_auditoria(
+            {
+                "auditoria_id": str(uuid.uuid4())[:8],
+                "contrato_id": contrato_id,
+                "fecha": resultado["fecha_analisis"],
+                "total_clausulas": len(clausulas_evaluadas),
+                "clausulas_riesgo": len(hallazgos),
+                "resultado": "con_riesgos" if hallazgos else "aprobado",
+                "score": resumen_dictamen["score"],
+                "nivel_riesgo": resumen_dictamen["nivel_riesgo"],
+                "nombre": nombre,
+                "categoria": categoria,
+                "motor_riesgo": motor_riesgo,
+                "fuente_tokenizacion": fuente_tokenizacion,
+            }
+        )
+    except Exception as exc:
+        logger.exception(
+            "Error al guardar los resultados del contrato '%s' [%s]: %s",
+            nombre,
+            contrato_id,
+            exc,
+        )
+        raise RuntimeError(
+            "El análisis terminó, pero no se pudieron guardar sus resultados."
+        ) from exc
+
     _notificar(progreso_callback, "Análisis completado.", 1.0)
     return resultado
-
 
 def analizar_lote(
     archivos: list[dict[str, Any]],
