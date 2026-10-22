@@ -283,31 +283,56 @@ def analizar_contrato(
     progreso_callback: ProgressCallback | None = None,
 ) -> dict[str, Any]:
     if not isinstance(texto, str):
-        raise TypeError("El contenido del contrato debe ser texto.")
+        raise TypeError("El contenido del documento debe ser texto.")
 
     if not isinstance(nombre, str):
-        raise TypeError("El nombre del contrato debe ser texto.")
+        raise TypeError("El nombre del documento debe ser texto.")
+
+    if not isinstance(categoria, str):
+        raise TypeError("La categoría del documento debe ser texto.")
 
     texto = texto.strip()
+    nombre = nombre.strip()
+    categoria = categoria.strip().lower()
+
+    categorias_escolares = {
+        "matricula",
+        "reglamento",
+        "autorizacion",
+        "servicios_escolares",
+    }
+
+    # Compatibilidad temporal con la interfaz y los contratos existentes.
+    categorias_anteriores = {
+        "general",
+        "laboral",
+        "arrendamiento",
+        "servicios",
+        "compraventa",
+    }
+
+    if categoria not in categorias_escolares | categorias_anteriores:
+        raise ValueError(
+            "Categoría no reconocida. Las categorías escolares son: "
+            "matricula, reglamento, autorizacion y servicios_escolares."
+        )
 
     if not texto:
-        raise ValueError("El contrato no puede estar vacío.")
+        raise ValueError("El documento no puede estar vacío.")
 
     if len(texto) < 50:
         raise ValueError(
-            "El contrato contiene muy poco texto para realizar un análisis confiable."
+            "El documento debe contener al menos 50 caracteres "
+            "para iniciar el análisis."
         )
 
-    nombre = nombre.strip()
-
     if not nombre:
-        raise ValueError("El nombre del contrato no puede estar vacío.")
+        raise ValueError("El nombre del documento no puede estar vacío.")
 
     if len(nombre) < 3:
         raise ValueError(
-            "El nombre del contrato debe contener al menos 3 caracteres."
+            "El nombre del documento debe contener al menos 3 caracteres."
         )
-
     contrato_id = str(uuid.uuid4())[:8]
     logger.info(f"Iniciando análisis del contrato '{nombre}' [{contrato_id}] categoria={categoria}")
 
